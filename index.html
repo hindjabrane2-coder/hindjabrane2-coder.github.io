@@ -3,559 +3,767 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Hind Jabrane - Ingenieure Mecatronique et Robotique</title>
+<title>Hind Jabrane, ingénieure mécatronique et robotique</title>
+<meta name="description" content="Portfolio de Hind Jabrane, ingénieure mécatronique et robotique diplômée de SUPMICROTECH ENSMM en février 2027.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=DM+Sans:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..100,500..800&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
 <style>
 :root {
-  --bg: #0e1016;
-  --surface: #161a24;
-  --surface-hover: #1c2130;
-  --border: #252b3a;
-  --text: #dfe3ec;
-  --text-secondary: #7d869a;
-  --accent: #4a8fe7;
-  --accent-dim: #2a4a78;
-  --font-heading: 'Space Grotesk', system-ui, sans-serif;
-  --font-body: 'DM Sans', system-ui, sans-serif;
+  --paper: #eef1f4;
+  --sheet: #ffffff;
+  --ink: #12203a;
+  --ink-soft: #4b5872;
+  --line: #d3dae3;
+  --cobalt: #1f4fd8;
+  --cobalt-soft: #e3eafc;
+  --signal: #f2b705;
+  --display: 'Archivo', 'Arial Narrow', sans-serif;
+  --body: 'IBM Plex Sans', system-ui, sans-serif;
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
-
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; scroll-padding-top: 72px; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
 
 body {
-  background: var(--bg);
-  color: var(--text);
-  font-family: var(--font-body);
-  font-size: 16px;
-  line-height: 1.65;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--body);
+  font-size: 17px;
+  line-height: 1.6;
   -webkit-font-smoothing: antialiased;
 }
 
-a { color: var(--accent); text-decoration: none; }
-a:hover { text-decoration: underline; }
+img, video { display: block; max-width: 100%; }
+a { color: var(--cobalt); }
+a:focus-visible, button:focus-visible, video:focus-visible { outline: 3px solid var(--signal); outline-offset: 3px; border-radius: 4px; }
 
-.container {
-  max-width: 960px;
-  margin: 0 auto;
-  padding: 0 24px;
+.wrap { max-width: 1140px; margin: 0 auto; padding: 0 28px; }
+
+h1, h2, h3 { font-family: var(--display); color: var(--ink); line-height: 1.1; }
+h2 { font-size: clamp(2rem, 4vw, 2.75rem); font-weight: 800; font-stretch: 80%; letter-spacing: -0.01em; }
+h3 { font-size: 1.35rem; font-weight: 700; font-stretch: 90%; }
+
+.section { padding: 96px 0 0; }
+.section-head { display: grid; grid-template-columns: 1fr 1.3fr; gap: 40px; align-items: end; margin-bottom: 44px; }
+.section-head p { color: var(--ink-soft); max-width: 56ch; }
+
+/* Navigation */
+.topbar {
+  position: sticky; top: 0; z-index: 20;
+  background: rgba(238, 241, 244, 0.92);
+  backdrop-filter: saturate(140%) blur(8px);
+  border-bottom: 1px solid var(--line);
+}
+.topbar .wrap { display: flex; align-items: center; justify-content: space-between; height: 62px; gap: 24px; }
+.brand { display: flex; align-items: center; gap: 12px; text-decoration: none; color: var(--ink); font-family: var(--display); font-weight: 700; font-size: 1.05rem; white-space: nowrap; }
+.brand img { width: 36px; height: 36px; border-radius: 50%; object-fit: cover; object-position: 50% 20%; }
+.topbar nav ul { list-style: none; display: flex; gap: 26px; }
+.topbar nav a { color: var(--ink-soft); text-decoration: none; font-size: 0.93rem; font-weight: 500; }
+.topbar nav a:hover { color: var(--cobalt); }
+
+/* En-tête */
+.hero { padding: 72px 0 24px; }
+.hero .wrap { display: grid; grid-template-columns: 1.25fr 1fr; gap: 64px; align-items: center; }
+.status {
+  display: inline-flex; align-items: center; gap: 10px;
+  background: var(--sheet); border: 1px solid var(--line); border-radius: 999px;
+  padding: 6px 16px 6px 12px; font-size: 0.92rem; font-weight: 500; margin-bottom: 28px;
+}
+.status::before { content: ""; width: 10px; height: 10px; border-radius: 50%; background: #1f9d55; box-shadow: 0 0 0 4px #d4f0df; }
+.hero h1 {
+  font-size: clamp(3.6rem, 9vw, 7.2rem);
+  font-weight: 800; font-stretch: 75%;
+  letter-spacing: -0.02em; line-height: 0.9;
+  margin-bottom: 18px;
+}
+.hero .role { font-family: var(--display); font-size: clamp(1.3rem, 2.4vw, 1.7rem); font-weight: 600; font-stretch: 90%; color: var(--cobalt); margin-bottom: 22px; }
+.hero .pitch { color: var(--ink-soft); font-size: 1.08rem; max-width: 52ch; margin-bottom: 32px; }
+.actions { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 32px; }
+.btn {
+  display: inline-flex; align-items: center; gap: 10px;
+  font-family: var(--body); font-weight: 600; font-size: 0.98rem;
+  padding: 13px 22px; border-radius: 8px; text-decoration: none;
+  border: 1.5px solid var(--ink); color: var(--ink); background: transparent;
+  transition: background .15s, color .15s;
+}
+.btn svg { width: 18px; height: 18px; flex: none; }
+.btn.primary { background: var(--ink); color: #fff; }
+.btn.primary:hover { background: var(--cobalt); border-color: var(--cobalt); }
+.btn:not(.primary):hover { background: var(--ink); color: #fff; }
+.facts { display: flex; flex-wrap: wrap; gap: 8px 28px; color: var(--ink-soft); font-size: 0.95rem; }
+.facts span { display: inline-flex; align-items: center; gap: 8px; }
+.facts svg { width: 17px; height: 17px; color: var(--cobalt); }
+
+.viewport { position: relative; padding: 18px; }
+.viewport img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: 60% 40%; border-radius: 4px; }
+.viewport::before, .viewport::after, .viewport .c3, .viewport .c4 {
+  content: ""; position: absolute; width: 34px; height: 34px; border-color: var(--cobalt); border-style: solid;
+}
+.viewport::before { top: 0; left: 0; border-width: 3px 0 0 3px; }
+.viewport::after { top: 0; right: 0; border-width: 3px 3px 0 0; }
+.viewport .c3 { bottom: 0; left: 0; border-width: 0 0 3px 3px; }
+.viewport .c4 { bottom: 0; right: 0; border-width: 0 3px 3px 0; }
+.viewport figcaption {
+  position: absolute; left: 34px; bottom: 34px; right: 34px;
+  background: rgba(18, 32, 58, 0.88); color: #fff; font-size: 0.85rem; line-height: 1.4;
+  padding: 10px 14px; border-radius: 4px; border-left: 4px solid var(--signal);
 }
 
-/* ---- HEADER ---- */
+/* Compétences */
+.skills { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: 10px; overflow: hidden; }
+.skill { background: var(--sheet); padding: 30px 28px 32px; }
+.skill .ico { width: 44px; height: 44px; border-radius: 10px; background: var(--cobalt-soft); color: var(--cobalt); display: grid; place-items: center; margin-bottom: 18px; }
+.skill .ico svg { width: 24px; height: 24px; }
+.skill h3 { font-size: 1.2rem; margin-bottom: 8px; }
+.skill p { color: var(--ink-soft); font-size: 0.95rem; margin-bottom: 16px; }
+.chips { display: flex; flex-wrap: wrap; gap: 7px; list-style: none; }
+.chips li { font-size: 0.86rem; font-weight: 500; padding: 4px 11px; border-radius: 6px; background: var(--paper); border: 1px solid var(--line); }
+.chips li.key { background: var(--ink); color: #fff; border-color: var(--ink); }
 
-header {
-  padding: 72px 0 48px;
+.robots { margin-top: 28px; display: flex; flex-wrap: wrap; align-items: baseline; gap: 10px 34px; padding: 22px 28px; background: var(--ink); border-radius: 10px; color: #fff; }
+.robots strong { font-family: var(--body); font-size: 0.95rem; font-weight: 500; color: #aab6cc; margin-right: 6px; }
+.robots span { font-family: var(--display); font-size: 1.45rem; font-weight: 700; font-stretch: 80%; }
+
+/* Projets */
+.domain { margin-top: 64px; }
+.domain:first-of-type { margin-top: 0; }
+.domain-title { display: flex; align-items: baseline; gap: 16px; margin-bottom: 24px; }
+.domain-title h3 { font-size: 1.6rem; font-weight: 800; font-stretch: 85%; }
+.domain-title span { color: var(--ink-soft); font-size: 0.95rem; }
+
+.project { display: grid; grid-template-columns: 1fr 1fr; background: var(--sheet); border: 1px solid var(--line); border-radius: 10px; overflow: hidden; margin-bottom: 22px; }
+.project.portrait { grid-template-columns: 340px 1fr; }
+.project.wide { grid-template-columns: 1.35fr 1fr; }
+.project .media { background: #0d1626; display: flex; align-items: center; justify-content: center; }
+.project .media video, .project .media > img { width: 100%; height: 100%; object-fit: cover; }
+.project.wide .media video { object-fit: contain; height: auto; }
+.project .media.duo { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; background: var(--line); }
+.project .media.duo img { width: 100%; height: 100%; object-fit: cover; aspect-ratio: 9 / 16; }
+.project .body { padding: 34px 36px 36px; display: flex; flex-direction: column; }
+.where { font-size: 0.9rem; color: var(--ink-soft); margin-bottom: 6px; }
+.project h4 { font-family: var(--display); font-size: 1.55rem; font-weight: 700; font-stretch: 88%; line-height: 1.15; margin-bottom: 14px; }
+.project p { color: var(--ink-soft); font-size: 0.98rem; margin-bottom: 12px; }
+.project ul.points { list-style: none; margin: 4px 0 18px; }
+.project ul.points li { position: relative; padding-left: 20px; font-size: 0.95rem; margin-bottom: 6px; }
+.project ul.points li::before { content: ""; position: absolute; left: 2px; top: 0.62em; width: 8px; height: 8px; background: var(--signal); border-radius: 2px; }
+.project .chips { margin-bottom: 22px; }
+.project .body .repo { margin-top: auto; }
+
+.repo {
+  display: inline-flex; align-items: center; gap: 9px; align-self: flex-start;
+  font-weight: 600; font-size: 0.95rem; text-decoration: none; color: var(--cobalt);
+  padding: 9px 16px; border: 1.5px solid var(--cobalt); border-radius: 8px;
+  transition: background .15s, color .15s;
 }
+.repo:hover { background: var(--cobalt); color: #fff; }
+.repo svg { width: 18px; height: 18px; }
 
-header h1 {
-  font-family: var(--font-heading);
-  font-size: 2.4rem;
-  font-weight: 700;
-  letter-spacing: -0.02em;
-  line-height: 1.15;
-  margin-bottom: 8px;
+.cards { display: grid; grid-template-columns: repeat(2, 1fr); gap: 22px; }
+.card { background: var(--sheet); border: 1px solid var(--line); border-radius: 10px; padding: 30px 32px 32px; display: flex; flex-direction: column; }
+.card h4 { font-family: var(--display); font-size: 1.35rem; font-weight: 700; font-stretch: 88%; margin-bottom: 10px; }
+.card p { color: var(--ink-soft); font-size: 0.96rem; margin-bottom: 16px; }
+.card .chips { margin-bottom: 22px; }
+.card .repo { margin-top: auto; }
+
+/* Parcours */
+.path { display: grid; grid-template-columns: 1.5fr 1fr; gap: 56px; }
+.path h3 { font-size: 1.5rem; font-weight: 800; font-stretch: 85%; margin-bottom: 26px; }
+.timeline { list-style: none; position: relative; }
+.timeline::before { content: ""; position: absolute; left: 7px; top: 8px; bottom: 8px; width: 2px; background: var(--line); }
+.timeline li { position: relative; padding-left: 38px; margin-bottom: 30px; }
+.timeline li:last-child { margin-bottom: 0; }
+.timeline li::before { content: ""; position: absolute; left: 0; top: 6px; width: 16px; height: 16px; border-radius: 50%; background: var(--sheet); border: 3px solid var(--cobalt); }
+.timeline li.now::before { background: var(--cobalt); }
+.timeline .date { font-size: 0.88rem; font-weight: 600; color: var(--cobalt); }
+.timeline h4 { font-family: var(--display); font-size: 1.22rem; font-weight: 700; font-stretch: 90%; margin: 2px 0 2px; }
+.timeline .org { font-size: 0.95rem; font-weight: 500; margin-bottom: 6px; }
+.timeline p { color: var(--ink-soft); font-size: 0.94rem; }
+
+.school { background: var(--sheet); border: 1px solid var(--line); border-radius: 10px; padding: 26px 28px; margin-bottom: 18px; }
+.school .date { font-size: 0.88rem; font-weight: 600; color: var(--cobalt); }
+.school h4 { font-family: var(--display); font-size: 1.22rem; font-weight: 700; font-stretch: 90%; margin: 4px 0 4px; }
+.school .org { font-weight: 500; font-size: 0.95rem; margin-bottom: 8px; }
+.school p { color: var(--ink-soft); font-size: 0.94rem; }
+.school.main { border-left: 4px solid var(--cobalt); }
+
+.langs { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 30px; }
+.langs div { background: var(--sheet); border: 1px solid var(--line); border-radius: 10px; padding: 14px 18px; }
+.langs b { display: block; font-family: var(--display); font-size: 1.08rem; font-weight: 700; }
+.langs span { color: var(--ink-soft); font-size: 0.9rem; }
+
+/* Certificats */
+.certs { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+.cert { background: var(--sheet); border: 1px solid var(--line); border-radius: 10px; overflow: hidden; display: flex; flex-direction: column; text-decoration: none; color: var(--ink); transition: border-color .15s; }
+.cert:hover { border-color: var(--cobalt); }
+.cert img { width: 100%; aspect-ratio: 660 / 510; object-fit: cover; border-bottom: 1px solid var(--line); }
+.cert > div { padding: 18px 20px 20px; display: flex; flex-direction: column; flex: 1; }
+.cert h4 { font-family: var(--display); font-size: 1.08rem; font-weight: 700; font-stretch: 90%; line-height: 1.2; margin-bottom: 6px; }
+.cert .by { font-size: 0.88rem; color: var(--ink-soft); margin-bottom: 14px; }
+.cert .links { margin-top: auto; display: flex; gap: 16px; font-size: 0.88rem; font-weight: 600; }
+.cert .links a { text-decoration: none; }
+.cert .links a:hover { text-decoration: underline; }
+
+/* Centres d'intérêt */
+.hobbies { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+.hobby { background: var(--sheet); border: 1px solid var(--line); border-radius: 10px; overflow: hidden; }
+.hobby img { width: 100%; aspect-ratio: 400 / 260; object-fit: cover; }
+.hobby div { padding: 18px 20px 22px; }
+.hobby h4 { font-family: var(--display); font-size: 1.15rem; font-weight: 700; font-stretch: 90%; margin-bottom: 6px; }
+.hobby p { color: var(--ink-soft); font-size: 0.93rem; }
+
+/* Contact */
+.contact { margin: 110px 0 0; background: var(--ink); color: #fff; padding: 80px 0 40px; }
+.contact .grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 56px; align-items: start; }
+.contact h2 { color: #fff; margin-bottom: 16px; }
+.contact p { color: #b9c3d6; max-width: 48ch; margin-bottom: 28px; }
+.contact .btn { border-color: #fff; color: #fff; }
+.contact .btn.primary { background: var(--signal); border-color: var(--signal); color: var(--ink); }
+.contact .btn.primary:hover { background: #fff; border-color: #fff; }
+.contact .btn:not(.primary):hover { background: #fff; color: var(--ink); }
+.contact dl { display: grid; grid-template-columns: auto 1fr; gap: 14px 22px; font-size: 0.98rem; }
+.contact dt { color: #8f9bb3; }
+.contact dd a { color: #fff; }
+.contact footer { margin-top: 72px; padding-top: 24px; color: #8f9bb3; font-size: 0.88rem; }
+
+@media (max-width: 1000px) {
+  .topbar nav { display: none; }
+  .hero .wrap { grid-template-columns: 1fr; gap: 40px; }
+  .viewport { max-width: 480px; }
+  .skills { grid-template-columns: 1fr 1fr; }
+  .certs, .hobbies { grid-template-columns: 1fr 1fr; }
+  .path { grid-template-columns: 1fr; }
+  .project, .project.portrait, .project.wide { grid-template-columns: 1fr; }
+  .project.portrait .media video { max-height: 640px; width: auto; }
 }
-
-header .title {
-  font-family: var(--font-heading);
-  font-size: 1.1rem;
-  font-weight: 400;
-  color: var(--accent);
-  margin-bottom: 28px;
-}
-
-header .intro {
-  color: var(--text-secondary);
-  max-width: 620px;
-  font-size: 1.02rem;
-}
-
-header .contact-row {
-  margin-top: 24px;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  font-size: 0.92rem;
-  color: var(--text-secondary);
-}
-
-header .contact-row a {
-  color: var(--text-secondary);
-}
-header .contact-row a:hover {
-  color: var(--accent);
-}
-
-/* ---- NAV ---- */
-
-nav {
-  border-top: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
-  padding: 14px 0;
-  margin-bottom: 56px;
-  position: sticky;
-  top: 0;
-  background: var(--bg);
-  z-index: 10;
-}
-
-nav ul {
-  list-style: none;
-  display: flex;
-  gap: 32px;
-  font-family: var(--font-heading);
-  font-size: 0.88rem;
-  font-weight: 500;
-}
-
-nav a {
-  color: var(--text-secondary);
-  transition: color 0.2s;
-}
-nav a:hover { color: var(--text); text-decoration: none; }
-
-/* ---- SECTIONS ---- */
-
-section {
-  margin-bottom: 72px;
-}
-
-section > h2 {
-  font-family: var(--font-heading);
-  font-size: 1.5rem;
-  font-weight: 600;
-  letter-spacing: -0.01em;
-  margin-bottom: 36px;
-}
-
-/* ---- PROJECT CARDS ---- */
-
-.project {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  margin-bottom: 32px;
-  overflow: hidden;
-}
-
-.project-media {
-  width: 100%;
-  background: #000;
-}
-
-.project-media video,
-.project-media img {
-  width: 100%;
-  display: block;
-}
-
-.project-body {
-  padding: 28px 32px 32px;
-}
-
-.project-body h3 {
-  font-family: var(--font-heading);
-  font-size: 1.2rem;
-  font-weight: 600;
-  margin-bottom: 4px;
-}
-
-.project-body .meta {
-  font-size: 0.85rem;
-  color: var(--text-secondary);
-  margin-bottom: 14px;
-}
-
-.project-body p {
-  color: var(--text-secondary);
-  font-size: 0.95rem;
-  max-width: 640px;
-  margin-bottom: 16px;
-}
-
-.project-body .tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-bottom: 16px;
-}
-
-.project-body .tag {
-  font-family: var(--font-heading);
-  font-size: 0.78rem;
-  font-weight: 500;
-  color: var(--accent);
-  background: var(--accent-dim);
-  border-radius: 4px;
-  padding: 3px 10px;
-}
-
-.project-body .link-repo {
-  font-family: var(--font-heading);
-  font-size: 0.88rem;
-  font-weight: 500;
-}
-
-/* ---- REPO GRID (for repos without media) ---- */
-
-.repo-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 20px;
-}
-
-.repo-card {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  padding: 24px 28px;
-  transition: border-color 0.2s;
-}
-
-.repo-card:hover {
-  border-color: var(--accent-dim);
-}
-
-.repo-card h3 {
-  font-family: var(--font-heading);
-  font-size: 1.05rem;
-  font-weight: 600;
-  margin-bottom: 8px;
-}
-
-.repo-card h3 a {
-  color: var(--text);
-}
-.repo-card h3 a:hover {
-  color: var(--accent);
-  text-decoration: none;
-}
-
-.repo-card p {
-  color: var(--text-secondary);
-  font-size: 0.9rem;
-  margin-bottom: 14px;
-}
-
-.repo-card .lang {
-  font-family: var(--font-heading);
-  font-size: 0.8rem;
-  font-weight: 500;
-  color: var(--text-secondary);
-}
-
-.repo-card .lang-dot {
-  display: inline-block;
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  margin-right: 5px;
-  vertical-align: middle;
-}
-
-.lang-python { background: #3572A5; }
-.lang-cpp { background: #f34b7d; }
-.lang-csharp { background: #178600; }
-.lang-val3 { background: #e0a526; }
-.lang-ros2 { background: #22b573; }
-
-/* ---- COMPETENCES ---- */
-
-.skills-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 32px;
-}
-
-.skills-group h3 {
-  font-family: var(--font-heading);
-  font-size: 1rem;
-  font-weight: 600;
-  margin-bottom: 12px;
-}
-
-.skills-group p {
-  color: var(--text-secondary);
-  font-size: 0.92rem;
-}
-
-/* ---- FOOTER ---- */
-
-footer {
-  border-top: 1px solid var(--border);
-  padding: 32px 0;
-  text-align: center;
-  color: var(--text-secondary);
-  font-size: 0.85rem;
-  margin-top: 48px;
-}
-
-/* ---- RESPONSIVE ---- */
-
 @media (max-width: 640px) {
-  header { padding: 48px 0 32px; }
-  header h1 { font-size: 1.8rem; }
-  nav ul { gap: 20px; font-size: 0.82rem; }
-  .repo-grid { grid-template-columns: 1fr; }
-  .skills-grid { grid-template-columns: 1fr; }
-  .project-body { padding: 20px 20px 24px; }
-  section > h2 { font-size: 1.3rem; }
+  body { font-size: 16px; }
+  .wrap { padding: 0 16px; }
+  .section { padding-top: 72px; }
+  .section-head { grid-template-columns: 1fr; gap: 14px; }
+  .skills, .cards, .certs, .hobbies, .langs { grid-template-columns: 1fr; }
+  .project .body, .card { padding: 24px 22px 26px; }
+  .contact .grid { grid-template-columns: 1fr; }
+  .robots span { font-size: 1.2rem; }
 }
 </style>
 </head>
 <body>
 
-<div class="container">
+<header class="topbar">
+  <div class="wrap">
+    <a class="brand" href="#top"><img src="media/portrait.jpg" alt="">Hind Jabrane</a>
+    <nav aria-label="Sections">
+      <ul>
+        <li><a href="#competences">Compétences</a></li>
+        <li><a href="#projets">Projets</a></li>
+        <li><a href="#parcours">Parcours</a></li>
+        <li><a href="#certificats">Certificats</a></li>
+        <li><a href="#interets">Centres d'intérêt</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
 
-  <header>
-    <h1>Hind Jabrane</h1>
-    <div class="title">Ingenieure Mecatronique et Robotique</div>
-    <p class="intro">
-      Diplomee de SUPMICROTECH ENSMM, specialisee en robotique industrielle,
-      systemes embarques et electronique. Habituee a mener des projets de la
-      conception a la realisation, de la CAO au cablage en passant par la programmation
-      de robots industriels.
-    </p>
-    <div class="contact-row">
-      <span><a href="mailto:hindjabrane2@gmail.com">hindjabrane2@gmail.com</a></span>
-      <span>Bordeaux, France</span>
-      <span><a href="https://github.com/hindjabrane2-coder">GitHub</a></span>
-    </div>
-  </header>
+<main id="top">
 
-  <nav>
-    <ul>
-      <li><a href="#robotique">Robotique</a></li>
-      <li><a href="#mecatronique">Mecatronique</a></li>
-      <li><a href="#conception">Conception mecanique</a></li>
-      <li><a href="#competences">Competences</a></li>
-    </ul>
-  </nav>
-
-  <!-- ==================== ROBOTIQUE ==================== -->
-
-  <section id="robotique">
-    <h2>Robotique industrielle</h2>
-
-    <div class="project">
-      <div class="project-media">
-        <video controls muted preload="metadata">
-          <source src="media/ur5e-mir100.mp4" type="video/mp4">
-        </video>
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <div class="status">Disponible à partir de mars 2027</div>
+      <h1>Hind<br>Jabrane</h1>
+      <div class="role">Ingénieure mécatronique et robotique</div>
+      <p class="pitch">
+        Diplômée de SUPMICROTECH ENSMM en février 2027. Je travaille sur des systèmes complets :
+        conception mécanique, câblage et électronique, programmation de robots industriels et
+        régulation. Mon stage de fin d'études chez TreeFrog Therapeutics m'a confié la réalisation
+        électrique d'une machine de production de cellules souches, de l'armoire jusqu'à l'IHM.
+      </p>
+      <div class="actions">
+        <a class="btn primary" href="CV_Hind_JABRANE.pdf" download>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0 5-5m-5 5-5-5M5 21h14"/></svg>
+          Télécharger mon CV
+        </a>
+        <a class="btn" href="https://github.com/hindjabrane2-coder" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.45-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.52 2.34 1.08 2.91.83.09-.65.35-1.08.63-1.33-2.22-.25-4.55-1.11-4.55-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.64 0 0 .84-.27 2.75 1.02a9.5 9.5 0 0 1 5 0c1.91-1.29 2.75-1.02 2.75-1.02.55 1.37.2 2.39.1 2.64.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85v2.74c0 .27.18.58.69.48A10 10 0 0 0 12 2Z"/></svg>
+          Mon GitHub
+        </a>
+        <a class="btn" href="mailto:hindjabrane2@gmail.com">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+          M'écrire
+        </a>
       </div>
-      <div class="project-body">
-        <h3>Programmation UR5e sur MiR 100</h3>
-        <div class="meta">ENSMM, plateforme FiRAC</div>
-        <p>
-          Programmation d'un bras collaboratif UR5e monte sur un robot mobile MiR 100
-          equipe d'un prehenseur Robotiq. Le programme complet couvre l'apprentissage
-          de la carte de l'atelier, la navigation autonome entre la station de charge et
-          les postes de travail, et l'execution de taches de manipulation pendant le
-          deplacement. Ici, le robot efface un prenom sur un tableau blanc en se deplacant
-          d'un point A a un point B.
-        </p>
-        <div class="tags">
-          <span class="tag">UR5e</span>
-          <span class="tag">MiR 100</span>
-          <span class="tag">Robotiq</span>
-          <span class="tag">Polyscope</span>
-        </div>
+      <div class="facts">
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.5"/></svg>Bordeaux</span>
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 17h14M6 17l1.5-5h9L18 17M7 17v2M17 17v2"/><circle cx="8.5" cy="14.5" r=".5"/><circle cx="15.5" cy="14.5" r=".5"/></svg>Permis B, véhiculée</span>
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h16v10H4zM8 19h8M12 15v4"/></svg>Français, anglais C1, arabe, allemand B1</span>
       </div>
     </div>
 
-    <div class="project">
-      <div class="project-body">
-        <h3>Suivi de contour et regulation de force, Staubli TX2-60</h3>
-        <div class="meta">ENSMM, plateforme robotique</div>
-        <p>
-          Programmation en VAL3 d'un robot Staubli TX2-60 pour le suivi de contour
-          avec regulation de force, la prise a la volee d'objets sur convoyeur, et la
-          synchronisation d'axes. Le capteur effort integre au poignet permet de maintenir
-          une force de contact constante le long de surfaces de forme quelconque.
-        </p>
-        <div class="tags">
-          <span class="tag">Staubli TX2-60</span>
-          <span class="tag">VAL3</span>
-          <span class="tag">Capteur effort</span>
-          <span class="tag">Convoyeur</span>
-        </div>
-        <a class="link-repo" href="https://github.com/hindjabrane2-coder/Contour-following-STAUBLI">Voir le code sur GitHub</a>
-      </div>
+    <figure class="viewport">
+      <img src="media/hind-banc-treefrog.jpg" alt="Hind Jabrane en train de câbler l'écran de l'IHM sur le banc électrique de TreeFrog Therapeutics">
+      <span class="c3"></span><span class="c4"></span>
+      <figcaption>Intégration de l'IHM tactile sur le banc électrique de l'encapsulateur, TreeFrog Therapeutics</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="section" id="competences">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Compétences</h2>
+      <p>Ce que j'ai pratiqué en entreprise, en projet et sur les plateformes robotiques de l'ENSMM. Les éléments foncés sont ceux que j'utilise le plus.</p>
     </div>
 
-    <div class="project">
-      <div class="project-body">
-        <h3>Cinematique et trajectoire du WidowX-200 en ROS2</h3>
-        <div class="meta">Projet personnel</div>
-        <p>
-          Workspace ROS2 complet pour le robot WidowX-200 (4 DDL, servomoteurs
-          Dynamixel). Inclut le modele geometrique direct et inverse (solution analytique
-          et numerique Newton-Raphson/Levenberg-Marquardt), la planification de trajectoire
-          MoveJ/MoveL/MoveC avec profils de vitesse trapezoidal et en S, et l'analyse
-          Monte Carlo de l'espace de travail avec cartographie de dexterite.
-        </p>
-        <div class="tags">
-          <span class="tag">ROS2</span>
-          <span class="tag">Python</span>
-          <span class="tag">Cinematique inverse</span>
-          <span class="tag">Trajectoire</span>
-          <span class="tag">Jacobienne</span>
-        </div>
-        <a class="link-repo" href="https://github.com/hindjabrane2-coder/widowx200-kinematics">Voir le code sur GitHub</a>
-      </div>
-    </div>
-
-  </section>
-
-  <!-- ==================== MECATRONIQUE ==================== -->
-
-  <section id="mecatronique">
-    <h2>Projets mecatroniques</h2>
-
-    <div class="project">
-      <div class="project-media">
-        <img src="media/banc-electrique-treefrog.jpg" alt="Banc electrique de l'encapsulateur TreeFrog Therapeutics">
-      </div>
-      <div class="project-body">
-        <h3>Encapsulateur de cellules souches, TreeFrog Therapeutics</h3>
-        <div class="meta">Stage PFE, Pessac (fev. 2026 - sept. 2026)</div>
-        <p>
-          Realisation electrique et electronique d'un encapsulateur de cellules souches
-          pour la medecine regenerative. Le systeme comprend une regulation PID,
-          une communication RS485, le pilotage de moteurs, et un systeme embarque Linux
-          avec IHM tactile et telecommande operateur. CAO SolidWorks pour les supports
-          mecaniques, prototypage par decoupe laser et impression 3D.
-        </p>
-        <div class="tags">
-          <span class="tag">Regulation PID</span>
-          <span class="tag">RS485</span>
-          <span class="tag">Linux embarque</span>
-          <span class="tag">SolidWorks</span>
-          <span class="tag">Impression 3D</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="repo-grid">
-      <div class="repo-card">
-        <h3><a href="https://github.com/hindjabrane2-coder/Robot-Assistance-Pmr">Robot d'assistance PMR</a></h3>
-        <p>
-          Robot d'assistance aux personnes a mobilite reduite. Commande embarquee
-          Arduino, pilotage de moteurs, capteurs de distance et interface utilisateur.
-        </p>
-        <span class="lang"><span class="lang-dot lang-cpp"></span>C++ / Arduino</span>
-      </div>
-
-      <div class="repo-card">
-        <h3><a href="https://github.com/hindjabrane2-coder/Monte-escalier-electromecanique">Monte-escalier electromecanique</a></h3>
-        <p>
-          Systeme electromecanique de monte-escalier. Dimensionnement des actionneurs,
-          commande Arduino et interface de supervision Python.
-        </p>
-        <span class="lang"><span class="lang-dot lang-python"></span>Python / Arduino</span>
-      </div>
-    </div>
-  </section>
-
-  <!-- ==================== CONCEPTION MECANIQUE ==================== -->
-
-  <section id="conception">
-    <h2>Conception mecanique</h2>
-
-    <div class="project">
-      <div class="project-media">
-        <video controls muted preload="metadata">
-          <source src="media/prehenseur-creo.mp4" type="video/mp4">
-        </video>
-      </div>
-      <div class="project-body">
-        <h3>Prehenseur de robot</h3>
-        <div class="meta">Projet de conception, Creo Parametric</div>
-        <p>
-          Conception d'un prehenseur de robot industriel sur Creo Parametric.
-          Le mecanisme utilise un verin pneumatique pour actionner un systeme
-          de biellettes qui commande l'ouverture et la fermeture des mors de serrage.
-        </p>
-        <div class="tags">
-          <span class="tag">Creo Parametric</span>
-          <span class="tag">Mecanisme</span>
-          <span class="tag">Pneumatique</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="project">
-      <div class="project-media">
-        <video controls muted preload="metadata">
-          <source src="media/reducteur-engrenages-creo.mp4" type="video/mp4">
-        </video>
-      </div>
-      <div class="project-body">
-        <h3>Reducteur a engrenages</h3>
-        <div class="meta">Projet de conception, Creo Parametric</div>
-        <p>
-          Modelisation complete d'un reducteur a engrenages sur Creo Parametric
-          avec vue eclatee. Le reducteur comprend un train d'engrenages
-          cylindriques, les roulements de guidage des arbres et le carter d'assemblage.
-        </p>
-        <div class="tags">
-          <span class="tag">Creo Parametric</span>
-          <span class="tag">Engrenages</span>
-          <span class="tag">Roulements</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="repo-grid" style="grid-template-columns: 1fr;">
-      <div class="repo-card">
-        <h3><a href="https://github.com/hindjabrane2-coder/vehicule-tout-terrain-SEGULA">Vehicule tout-terrain, SEGULA Technologies</a></h3>
-        <p>
-          Cinematique de suspension double triangulation, analyse de contraintes
-          par elements finis et dimensionnement des ressorts de suspension
-          d'un vehicule tout-terrain.
-        </p>
-        <span class="lang"><span class="lang-dot lang-csharp"></span>C#</span>
-      </div>
-    </div>
-  </section>
-
-  <!-- ==================== COMPETENCES ==================== -->
-
-  <section id="competences">
-    <h2>Competences</h2>
-
-    <div class="skills-grid">
-      <div class="skills-group">
+    <div class="skills">
+      <div class="skill">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 21h8M8 21v-4"/><circle cx="8" cy="15" r="2"/><path d="m9.4 13.6 4.2-4.2"/><circle cx="15" cy="8" r="2"/><path d="M16.4 6.6 19 4m0 0 1.5 3M19 4l-3-.5"/></svg></div>
         <h3>Robotique</h3>
-        <p>Fanuc, Epson, Staubli, UR5e, WidowX-200, MiR 100.
-          Cinematique inverse, PID, MoveJ/MoveL, commande en force,
-          vision par ordinateur (OpenCV, YOLO). ROS2.</p>
+        <p>Programmation de bras industriels et collaboratifs, robots mobiles, modélisation et planification de trajectoires.</p>
+        <ul class="chips">
+          <li class="key">Stäubli VAL3</li><li class="key">UR5e PolyScope</li><li class="key">ROS2</li>
+          <li>Fanuc</li><li>Epson</li><li>MiR 100</li><li>WidowX-200</li>
+          <li>Cinématique directe et inverse</li><li>MoveJ, MoveL, MoveC</li><li>Commande en force</li>
+        </ul>
       </div>
-      <div class="skills-group">
+
+      <div class="skill">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 7h8M8 11h3M13 11h3M8 15h3M13 15h3"/></svg></div>
+        <h3>Automatisme et électrotechnique</h3>
+        <p>Armoires électriques, câblage, bancs d'essai et automates programmables.</p>
+        <ul class="chips">
+          <li class="key">Siemens S7-1200</li><li class="key">TIA Portal</li><li class="key">Câblage d'armoire</li>
+          <li>IHM</li><li>Bancs d'essai</li><li>Moteurs et variateurs</li><li>RS485</li><li>Calibrage capteurs</li>
+        </ul>
+      </div>
+
+      <div class="skill">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="6" width="12" height="12" rx="1"/><path d="M9 2v4M15 2v4M9 18v4M15 18v4M2 9h4M2 15h4M18 9h4M18 15h4"/></svg></div>
+        <h3>Systèmes embarqués et commande</h3>
+        <p>Boucles de régulation, cartes embarquées, communication entre équipements et simulation.</p>
+        <ul class="chips">
+          <li class="key">Régulation PID</li><li class="key">Arduino</li><li class="key">Linux embarqué</li>
+          <li>Simulink</li><li>MATLAB</li><li>Vision OpenCV, YOLO</li><li>Pilotage à distance</li>
+        </ul>
+      </div>
+
+      <div class="skill">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m8 8-4 4 4 4M16 8l4 4-4 4M14 5l-4 14"/></svg></div>
         <h3>Programmation</h3>
-        <p>Python, C/C++, Java, MATLAB, VAL3, Git, LaTeX.
-          Programmation d'automates, commande embarquee,
-          communication RS485.</p>
+        <p>Du script d'analyse au code embarqué, versionné avec Git.</p>
+        <ul class="chips">
+          <li class="key">Python</li><li class="key">C / C++</li>
+          <li>C#</li><li>Java</li><li>VAL3</li><li>MATLAB</li><li>Git</li><li>LaTeX</li>
+        </ul>
       </div>
-      <div class="skills-group">
-        <h3>Conception</h3>
-        <p>SolidWorks, Creo Parametric, ANSYS.
-          Impression 3D, decoupe laser, prototypage rapide.</p>
+
+      <div class="skill">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2 3 7v10l9 5 9-5V7l-9-5Z"/><path d="m3 7 9 5 9-5M12 12v10"/></svg></div>
+        <h3>Conception mécanique</h3>
+        <p>Modélisation de mécanismes, calcul de structures et fabrication de prototypes.</p>
+        <ul class="chips">
+          <li class="key">SolidWorks</li><li class="key">Creo Parametric</li>
+          <li>ANSYS</li><li>Impression 3D</li><li>Découpe laser</li><li>Prototypage rapide</li>
+        </ul>
       </div>
-      <div class="skills-group">
-        <h3>Langues</h3>
-        <p>Francais (bilingue), anglais (C1), arabe (langue maternelle),
-          allemand (B1).</p>
+
+      <div class="skill">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.5"/><path d="M3 20a6 6 0 0 1 12 0M14.5 20a4.5 4.5 0 0 1 7-3.7"/></svg></div>
+        <h3>Façon de travailler</h3>
+        <p>Des projets menés de bout en bout, souvent avec des équipes de métiers différents.</p>
+        <ul class="chips">
+          <li class="key">Rigueur et esprit analytique</li><li class="key">Autonomie</li>
+          <li>Travail en équipe pluridisciplinaire</li><li>Adaptabilité</li><li>Gestion du temps</li>
+        </ul>
       </div>
     </div>
-  </section>
 
-  <footer>
-    Hind Jabrane, 2026
-  </footer>
+    <div class="robots">
+      <strong>Robots déjà programmés</strong>
+      <span>Stäubli TX2-60</span><span>UR5e</span><span>MiR 100</span><span>Fanuc</span><span>Epson</span><span>WidowX-200</span>
+    </div>
+  </div>
+</section>
 
-</div>
+<section class="section" id="projets">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Projets</h2>
+      <p>Une sélection de réalisations en stage, en école et en projet personnel. Le code de chaque projet logiciel est disponible sur GitHub.</p>
+    </div>
+
+    <div class="domain">
+      <div class="domain-title"><h3>Robotique</h3><span>Bras industriels, cobots et robots mobiles</span></div>
+
+      <article class="project portrait">
+        <div class="media">
+          <video controls muted playsinline preload="none" poster="media/ur5e-mir100-poster.jpg">
+            <source src="media/ur5e-mir100.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="body">
+          <div class="where">ENSMM, plateforme robotique FiRAC</div>
+          <h4>Manipulateur mobile UR5e sur MiR 100</h4>
+          <p>
+            Programmation complète d'un cobot UR5e monté sur une base mobile MiR 100 avec une pince Robotiq.
+            Le robot apprend la carte de l'atelier, quitte sa station de charge, rejoint un poste précis et
+            exécute une tâche de manipulation. Dans la vidéo, il efface un prénom écrit au tableau.
+          </p>
+          <ul class="points">
+            <li>Cartographie de l'atelier et navigation autonome du MiR 100</li>
+            <li>Missions enchaînées : station de charge, déplacement point à point, parcours complet</li>
+            <li>Trajectoires du bras synchronisées avec la position de la base</li>
+          </ul>
+          <ul class="chips"><li>UR5e</li><li>MiR 100</li><li>Robotiq</li><li>PolyScope</li><li>Navigation autonome</li></ul>
+        </div>
+      </article>
+
+      <div class="cards">
+        <article class="card">
+          <div class="where">ENSMM, plateforme robotique</div>
+          <h4>Suivi de contour avec régulation d'effort, Stäubli TX2-60</h4>
+          <p>
+            Programmes VAL3 pour suivre une surface de forme quelconque à effort de contact constant grâce au
+            capteur d'effort du poignet. Le projet couvre aussi la prise à la volée d'objets sur convoyeur et
+            la synchronisation d'axes.
+          </p>
+          <ul class="chips"><li>VAL3</li><li>Capteur d'effort</li><li>Convoyeur</li><li>Synchronisation d'axes</li></ul>
+          <a class="repo" href="https://github.com/hindjabrane2-coder/Contour-following-STAUBLI" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m8 8-4 4 4 4M16 8l4 4-4 4"/></svg>Voir le code sur GitHub
+          </a>
+        </article>
+
+        <article class="card">
+          <div class="where">Projet personnel</div>
+          <h4>Cinématique et trajectoires du WidowX-200 sous ROS2</h4>
+          <p>
+            Workspace ROS2 complet pour un bras à servomoteurs Dynamixel : modèles géométriques direct et
+            inverse (analytique et Newton-Raphson, Levenberg-Marquardt), trajectoires MoveJ, MoveL et MoveC
+            avec profils trapézoïdal et en S, et analyse Monte Carlo de l'espace de travail.
+          </p>
+          <ul class="chips"><li>ROS2</li><li>Python</li><li>Jacobienne</li><li>Planification de trajectoire</li></ul>
+          <a class="repo" href="https://github.com/hindjabrane2-coder/widowx200-kinematics" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m8 8-4 4 4 4M16 8l4 4-4 4"/></svg>Voir le code sur GitHub
+          </a>
+        </article>
+      </div>
+    </div>
+
+    <div class="domain">
+      <div class="domain-title"><h3>Mécatronique et systèmes embarqués</h3><span>Électronique, régulation et intégration</span></div>
+
+      <article class="project wide">
+        <div class="media">
+          <img src="media/banc-electrique-treefrog.jpg" alt="Banc électrique de l'encapsulateur de cellules souches avec alimentation, borniers et cartes de commande">
+        </div>
+        <div class="body">
+          <div class="where">TreeFrog Therapeutics, Pessac. Stage de fin d'études, février à septembre 2026</div>
+          <h4>Encapsulateur de cellules souches</h4>
+          <p>
+            Réalisation électrique et électronique d'une machine qui encapsule des cellules souches pour la
+            médecine régénérative. J'ai pris en charge le banc électrique de la conception jusqu'à la mise en route.
+          </p>
+          <ul class="points">
+            <li>Régulation PID et pilotage des moteurs</li>
+            <li>Communication RS485 entre les équipements</li>
+            <li>Système embarqué Linux avec IHM tactile et télécommande opérateur</li>
+            <li>Supports mécaniques sous SolidWorks, prototypes en découpe laser et impression 3D</li>
+          </ul>
+          <ul class="chips"><li>Régulation PID</li><li>RS485</li><li>Linux embarqué</li><li>Câblage</li><li>SolidWorks</li></ul>
+        </div>
+      </article>
+
+      <article class="project">
+        <div class="media duo">
+          <img src="media/segway-1.jpg" alt="Robot gyropode vu de dessus, carte Arduino et drivers moteurs sur plaque d'essai">
+          <img src="media/segway-2.jpg" alt="Robot gyropode en équilibre sur ses deux roues">
+        </div>
+        <div class="body">
+          <div class="where">ENSMM, projet de mécatronique</div>
+          <h4>Gyropode auto-équilibré</h4>
+          <p>
+            Un robot à deux roues sur le principe du pendule inversé. Il doit rester debout tout seul et
+            retrouver son équilibre quand on le pousse. Une boucle PID calcule en continu la commande des
+            moteurs à partir de l'inclinaison mesurée.
+          </p>
+          <ul class="points">
+            <li>Carte Arduino MKR Zero, deux drivers moteurs Pololu, batterie LiPo</li>
+            <li>Mesure de l'inclinaison et régulation PID de l'équilibre</li>
+            <li>Réglage des gains pour tenir face aux perturbations</li>
+          </ul>
+          <ul class="chips"><li>Arduino</li><li>C / C++</li><li>Régulation PID</li><li>Pendule inversé</li></ul>
+        </div>
+      </article>
+
+      <div class="cards">
+        <article class="card">
+          <div class="where">ENSMM, projet de mécatronique</div>
+          <h4>Robot d'assistance pour personnes à mobilité réduite</h4>
+          <p>
+            Robot qui aide les personnes à mobilité réduite au quotidien. Commande embarquée Arduino,
+            pilotage des moteurs, capteurs de distance et interface utilisateur.
+          </p>
+          <ul class="chips"><li>C++</li><li>Arduino</li><li>Capteurs de distance</li><li>Motorisation</li></ul>
+          <a class="repo" href="https://github.com/hindjabrane2-coder/Robot-Assistance-Pmr" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m8 8-4 4 4 4M16 8l4 4-4 4"/></svg>Voir le code sur GitHub
+          </a>
+        </article>
+
+        <article class="card">
+          <div class="where">ENSMM, projet de mécatronique</div>
+          <h4>Monte-escalier électromécanique</h4>
+          <p>
+            Système de monte-escalier : dimensionnement des actionneurs, commande Arduino et interface
+            de supervision écrite en Python.
+          </p>
+          <ul class="chips"><li>Python</li><li>Arduino</li><li>Dimensionnement</li><li>Supervision</li></ul>
+          <a class="repo" href="https://github.com/hindjabrane2-coder/Monte-escalier-electromecanique" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m8 8-4 4 4 4M16 8l4 4-4 4"/></svg>Voir le code sur GitHub
+          </a>
+        </article>
+      </div>
+    </div>
+
+    <div class="domain">
+      <div class="domain-title"><h3>Conception mécanique</h3><span>CAO, mécanismes et calcul</span></div>
+
+      <article class="project wide">
+        <div class="media">
+          <video controls muted playsinline preload="none" poster="media/prehenseur-creo-poster.jpg">
+            <source src="media/prehenseur-creo.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="body">
+          <div class="where">Projet de conception, Creo Parametric</div>
+          <h4>Préhenseur de robot</h4>
+          <p>
+            Préhenseur pour robot industriel. Un vérin pneumatique actionne un système de biellettes
+            qui ouvre et ferme les mors de serrage. La vidéo montre la cinématique du mécanisme.
+          </p>
+          <ul class="chips"><li>Creo Parametric</li><li>Mécanisme à biellettes</li><li>Pneumatique</li></ul>
+        </div>
+      </article>
+
+      <article class="project wide">
+        <div class="media">
+          <video controls muted playsinline preload="none" poster="media/reducteur-engrenages-creo-poster.jpg">
+            <source src="media/reducteur-engrenages-creo.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="body">
+          <div class="where">Projet personnel, Creo Parametric</div>
+          <h4>Réducteur à engrenages</h4>
+          <p>
+            Modélisation complète d'un réducteur avec sa vue éclatée : train d'engrenages cylindriques,
+            arbres, roulements de guidage et carter.
+          </p>
+          <ul class="chips"><li>Creo Parametric</li><li>Engrenages</li><li>Roulements</li><li>Mise en plan</li></ul>
+        </div>
+      </article>
+
+      <div class="cards">
+        <article class="card">
+          <div class="where">Projet avec SEGULA Technologies</div>
+          <h4>Véhicule tout-terrain</h4>
+          <p>
+            Cinématique de la suspension à double triangulation, analyse des contraintes par éléments
+            finis et dimensionnement des ressorts.
+          </p>
+          <ul class="chips"><li>C#</li><li>Éléments finis</li><li>Suspension</li><li>Dimensionnement</li></ul>
+          <a class="repo" href="https://github.com/hindjabrane2-coder/vehicule-tout-terrain-SEGULA" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m8 8-4 4 4 4M16 8l4 4-4 4"/></svg>Voir le code sur GitHub
+          </a>
+        </article>
+
+        <article class="card">
+          <div class="where">Flaster Group, Agadir</div>
+          <h4>Drone d'assistance avec bras manipulateur</h4>
+          <p>
+            Porteuse du projet : réalisation d'un drone équipé d'un bras capable de saisir des objets et
+            d'ouvrir ou fermer des portes et des tiroirs.
+          </p>
+          <ul class="chips"><li>Drone</li><li>Bras manipulateur</li><li>Préhension</li><li>Gestion de projet</li></ul>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="parcours">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Parcours</h2>
+      <p>Quatre expériences en entreprise, en France et au Maroc, et une formation d'ingénieure qui se termine en février 2027.</p>
+    </div>
+
+    <div class="path">
+      <div>
+        <h3>Expériences</h3>
+        <ol class="timeline">
+          <li class="now">
+            <div class="date">Février à septembre 2026</div>
+            <h4>Ingénieure mécatronique, stage de fin d'études</h4>
+            <div class="org">TreeFrog Therapeutics, Pessac</div>
+            <p>Réalisation électrique et électronique d'un encapsulateur de cellules souches. Régulation PID, communication RS485, pilotage moteurs, système embarqué Linux avec IHM tactile, CAO SolidWorks.</p>
+          </li>
+          <li>
+            <div class="date">Février à juillet 2025</div>
+            <h4>Ingénieure éco-conception, stage</h4>
+            <div class="org">DASTRI, Paris</div>
+            <p>Optimisation du tri optique sur machine Sesotec Varisort Compact. Conception et prototypage de dispositifs d'ouverture automatisée.</p>
+          </li>
+          <li>
+            <div class="date">Décembre 2023 à mai 2024</div>
+            <h4>Porteuse de projet</h4>
+            <div class="org">Flaster Group, Agadir</div>
+            <p>Réalisation d'un drone d'assistance équipé d'un bras manipulateur pour la préhension d'objets.</p>
+          </li>
+          <li>
+            <div class="date">Juin à octobre 2023</div>
+            <h4>Collaboratrice technique, systèmes mécatroniques</h4>
+            <div class="org">LEAR Corporation, Agadir</div>
+            <p>Optimisation de bancs d'essai pour faisceaux électriques, calibrage de capteurs de contrôle qualité, programmation et synchronisation d'automates de production.</p>
+          </li>
+        </ol>
+      </div>
+
+      <div>
+        <h3>Formation</h3>
+        <div class="school main">
+          <div class="date">Septembre 2022 à février 2027</div>
+          <h4>Diplôme d'ingénieur mécatronique et robotique</h4>
+          <div class="org">SUPMICROTECH ENSMM, Besançon</div>
+          <p>Spécialité systèmes mécatroniques et robotiques.</p>
+        </div>
+        <div class="school">
+          <div class="date">Septembre 2020 à juillet 2022</div>
+          <h4>Classes préparatoires TSI</h4>
+          <div class="org">CPGE Benguerir, Maroc</div>
+          <p>Lycée d'excellence. Mathématiques, physique et sciences industrielles.</p>
+        </div>
+
+        <h3 style="margin-top:40px">Langues</h3>
+        <div class="langs">
+          <div><b>Français</b><span>Bilingue</span></div>
+          <div><b>Anglais</b><span>Niveau C1</span></div>
+          <div><b>Arabe</b><span>Langue maternelle</span></div>
+          <div><b>Allemand</b><span>Niveau B1</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="certificats">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Certificats</h2>
+      <p>Formations suivies en 2026 pour approfondir l'automatisme, la motorisation et la simulation. Chaque certificat est vérifiable sur Coursera.</p>
+    </div>
+
+    <div class="certs">
+      <article class="cert">
+        <img src="media/certificats/siemens-s7-1200-tia-portal.jpg" alt="Certificat Learn Siemens S7-1200 PLC and HMI via TIA Portal">
+        <div>
+          <h4>Siemens S7-1200 PLC et IHM avec TIA Portal (avancé)</h4>
+          <div class="by">Packt, via Coursera. Octobre 2026</div>
+          <div class="links">
+            <a href="certificats/siemens-s7-1200-tia-portal.pdf" target="_blank" rel="noopener">Voir le PDF</a>
+            <a href="https://coursera.org/verify/ULMU244G2POR" target="_blank" rel="noopener">Vérifier</a>
+          </div>
+        </div>
+      </article>
+      <article class="cert">
+        <img src="media/certificats/motors-motor-control-circuits.jpg" alt="Certificat Motors and Motor Control Circuits">
+        <div>
+          <h4>Motors and Motor Control Circuits</h4>
+          <div class="by">University of Colorado Boulder, via Coursera. Octobre 2026</div>
+          <div class="links">
+            <a href="certificats/motors-motor-control-circuits.pdf" target="_blank" rel="noopener">Voir le PDF</a>
+            <a href="https://coursera.org/verify/AOBGV5IAKWAJ" target="_blank" rel="noopener">Vérifier</a>
+          </div>
+        </div>
+      </article>
+      <article class="cert">
+        <img src="media/certificats/simulink-modeling-simulation.jpg" alt="Certificat Modeling and Simulation with Simulink">
+        <div>
+          <h4>Modeling and Simulation with Simulink</h4>
+          <div class="by">MathWorks, via Coursera. Septembre 2026</div>
+          <div class="links">
+            <a href="certificats/simulink-modeling-simulation.pdf" target="_blank" rel="noopener">Voir le PDF</a>
+            <a href="https://coursera.org/verify/1G62OVZIKUM0" target="_blank" rel="noopener">Vérifier</a>
+          </div>
+        </div>
+      </article>
+      <article class="cert">
+        <img src="media/certificats/electrification-mathworks.jpg" alt="Certificat Powering the Future with Electrification">
+        <div>
+          <h4>Powering the Future with Electrification</h4>
+          <div class="by">MathWorks, via Coursera. Septembre 2026</div>
+          <div class="links">
+            <a href="certificats/electrification-mathworks.pdf" target="_blank" rel="noopener">Voir le PDF</a>
+            <a href="https://coursera.org/verify/2G8TZFID2RR1" target="_blank" rel="noopener">Vérifier</a>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="interets">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Centres d'intérêt</h2>
+      <p>En dehors de l'atelier.</p>
+    </div>
+
+    <div class="hobbies">
+      <article class="hobby">
+        <img src="media/interets/tennis.svg" alt="Illustration d'un court de tennis avec une raquette et une balle">
+        <div><h4>Tennis</h4><p>Pratique régulière, pour l'effort physique et la concentration.</p></div>
+      </article>
+      <article class="hobby">
+        <img src="media/interets/benevolat.svg" alt="Illustration de deux mains tendues sous un cœur">
+        <div><h4>Bénévolat à la Croix-Rouge</h4><p>Engagement auprès des équipes de la Croix-Rouge.</p></div>
+      </article>
+      <article class="hobby">
+        <img src="media/interets/evenements.svg" alt="Illustration d'une scène décorée avec un public">
+        <div><h4>Vie associative</h4><p>Organisation d'événements associatifs et culturels.</p></div>
+      </article>
+      <article class="hobby">
+        <img src="media/interets/jeux.svg" alt="Illustration d'un plateau de jeu avec des pions et des dés">
+        <div><h4>Jeux de société</h4><p>Animation de soirées jeux, entre stratégie et convivialité.</p></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<section class="contact" id="contact">
+  <div class="wrap">
+    <div class="grid">
+      <div>
+        <h2>Me contacter</h2>
+        <p>Je cherche un poste d'ingénieure en robotique, automatisme ou mécatronique à partir de mars 2027. Le plus simple est de m'écrire, je réponds rapidement.</p>
+        <div class="actions">
+          <a class="btn primary" href="mailto:hindjabrane2@gmail.com">M'écrire</a>
+          <a class="btn" href="CV_Hind_JABRANE.pdf" download>Télécharger mon CV</a>
+        </div>
+      </div>
+      <dl>
+        <dt>E-mail</dt><dd><a href="mailto:hindjabrane2@gmail.com">hindjabrane2@gmail.com</a></dd>
+        <dt>Téléphone</dt><dd><a href="tel:+33605744135">06 05 74 41 35</a></dd>
+        <dt>Ville</dt><dd>Bordeaux</dd>
+        <dt>GitHub</dt><dd><a href="https://github.com/hindjabrane2-coder" target="_blank" rel="noopener">github.com/hindjabrane2-coder</a></dd>
+        <dt>Disponibilité</dt><dd>Mars 2027</dd>
+      </dl>
+    </div>
+    <footer>Hind Jabrane, 2026</footer>
+  </div>
+</section>
 
 </body>
 </html>
