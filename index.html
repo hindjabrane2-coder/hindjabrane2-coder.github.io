@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hind Jabrane - Ingenieure Mecatronique et Robotique</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=DM+Sans:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #0e1016;
+  --surface: #161a24;
+  --surface-hover: #1c2130;
+  --border: #252b3a;
+  --text: #dfe3ec;
+  --text-secondary: #7d869a;
+  --accent: #4a8fe7;
+  --accent-dim: #2a4a78;
+  --font-heading: 'Space Grotesk', system-ui, sans-serif;
+  --font-body: 'DM Sans', system-ui, sans-serif;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ---- HEADER ---- */
+
+header {
+  padding: 72px 0 48px;
+}
+
+header h1 {
+  font-family: var(--font-heading);
+  font-size: 2.4rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  margin-bottom: 8px;
+}
+
+header .title {
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  font-weight: 400;
+  color: var(--accent);
+  margin-bottom: 28px;
+}
+
+header .intro {
+  color: var(--text-secondary);
+  max-width: 620px;
+  font-size: 1.02rem;
+}
+
+header .contact-row {
+  margin-top: 24px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  font-size: 0.92rem;
+  color: var(--text-secondary);
+}
+
+header .contact-row a {
+  color: var(--text-secondary);
+}
+header .contact-row a:hover {
+  color: var(--accent);
+}
+
+/* ---- NAV ---- */
+
+nav {
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 14px 0;
+  margin-bottom: 56px;
+  position: sticky;
+  top: 0;
+  background: var(--bg);
+  z-index: 10;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 32px;
+  font-family: var(--font-heading);
+  font-size: 0.88rem;
+  font-weight: 500;
+}
+
+nav a {
+  color: var(--text-secondary);
+  transition: color 0.2s;
+}
+nav a:hover { color: var(--text); text-decoration: none; }
+
+/* ---- SECTIONS ---- */
+
+section {
+  margin-bottom: 72px;
+}
+
+section > h2 {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  margin-bottom: 36px;
+}
+
+/* ---- PROJECT CARDS ---- */
+
+.project {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  margin-bottom: 32px;
+  overflow: hidden;
+}
+
+.project-media {
+  width: 100%;
+  background: #000;
+}
+
+.project-media video,
+.project-media img {
+  width: 100%;
+  display: block;
+}
+
+.project-body {
+  padding: 28px 32px 32px;
+}
+
+.project-body h3 {
+  font-family: var(--font-heading);
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.project-body .meta {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  margin-bottom: 14px;
+}
+
+.project-body p {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  max-width: 640px;
+  margin-bottom: 16px;
+}
+
+.project-body .tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.project-body .tag {
+  font-family: var(--font-heading);
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: var(--accent);
+  background: var(--accent-dim);
+  border-radius: 4px;
+  padding: 3px 10px;
+}
+
+.project-body .link-repo {
+  font-family: var(--font-heading);
+  font-size: 0.88rem;
+  font-weight: 500;
+}
+
+/* ---- REPO GRID (for repos without media) ---- */
+
+.repo-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.repo-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 24px 28px;
+  transition: border-color 0.2s;
+}
+
+.repo-card:hover {
+  border-color: var(--accent-dim);
+}
+
+.repo-card h3 {
+  font-family: var(--font-heading);
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.repo-card h3 a {
+  color: var(--text);
+}
+.repo-card h3 a:hover {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.repo-card p {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  margin-bottom: 14px;
+}
+
+.repo-card .lang {
+  font-family: var(--font-heading);
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+
+.repo-card .lang-dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin-right: 5px;
+  vertical-align: middle;
+}
+
+.lang-python { background: #3572A5; }
+.lang-cpp { background: #f34b7d; }
+.lang-csharp { background: #178600; }
+.lang-val3 { background: #e0a526; }
+.lang-ros2 { background: #22b573; }
+
+/* ---- COMPETENCES ---- */
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+}
+
+.skills-group h3 {
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.skills-group p {
+  color: var(--text-secondary);
+  font-size: 0.92rem;
+}
+
+/* ---- FOOTER ---- */
+
+footer {
+  border-top: 1px solid var(--border);
+  padding: 32px 0;
+  text-align: center;
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  margin-top: 48px;
+}
+
+/* ---- RESPONSIVE ---- */
+
+@media (max-width: 640px) {
+  header { padding: 48px 0 32px; }
+  header h1 { font-size: 1.8rem; }
+  nav ul { gap: 20px; font-size: 0.82rem; }
+  .repo-grid { grid-template-columns: 1fr; }
+  .skills-grid { grid-template-columns: 1fr; }
+  .project-body { padding: 20px 20px 24px; }
+  section > h2 { font-size: 1.3rem; }
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <header>
+    <h1>Hind Jabrane</h1>
+    <div class="title">Ingenieure Mecatronique et Robotique</div>
+    <p class="intro">
+      Diplomee de SUPMICROTECH ENSMM, specialisee en robotique industrielle,
+      systemes embarques et electronique. Habituee a mener des projets de la
+      conception a la realisation, de la CAO au cablage en passant par la programmation
+      de robots industriels.
+    </p>
+    <div class="contact-row">
+      <span><a href="mailto:hindjabrane2@gmail.com">hindjabrane2@gmail.com</a></span>
+      <span>Bordeaux, France</span>
+      <span><a href="https://github.com/hindjabrane2-coder">GitHub</a></span>
+    </div>
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="#robotique">Robotique</a></li>
+      <li><a href="#mecatronique">Mecatronique</a></li>
+      <li><a href="#conception">Conception mecanique</a></li>
+      <li><a href="#competences">Competences</a></li>
+    </ul>
+  </nav>
+
+  <!-- ==================== ROBOTIQUE ==================== -->
+
+  <section id="robotique">
+    <h2>Robotique industrielle</h2>
+
+    <div class="project">
+      <div class="project-media">
+        <video controls muted preload="metadata">
+          <source src="media/ur5e-mir100.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="project-body">
+        <h3>Programmation UR5e sur MiR 100</h3>
+        <div class="meta">ENSMM, plateforme FiRAC</div>
+        <p>
+          Programmation d'un bras collaboratif UR5e monte sur un robot mobile MiR 100
+          equipe d'un prehenseur Robotiq. Le programme complet couvre l'apprentissage
+          de la carte de l'atelier, la navigation autonome entre la station de charge et
+          les postes de travail, et l'execution de taches de manipulation pendant le
+          deplacement. Ici, le robot efface un prenom sur un tableau blanc en se deplacant
+          d'un point A a un point B.
+        </p>
+        <div class="tags">
+          <span class="tag">UR5e</span>
+          <span class="tag">MiR 100</span>
+          <span class="tag">Robotiq</span>
+          <span class="tag">Polyscope</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="project">
+      <div class="project-body">
+        <h3>Suivi de contour et regulation de force, Staubli TX2-60</h3>
+        <div class="meta">ENSMM, plateforme robotique</div>
+        <p>
+          Programmation en VAL3 d'un robot Staubli TX2-60 pour le suivi de contour
+          avec regulation de force, la prise a la volee d'objets sur convoyeur, et la
+          synchronisation d'axes. Le capteur effort integre au poignet permet de maintenir
+          une force de contact constante le long de surfaces de forme quelconque.
+        </p>
+        <div class="tags">
+          <span class="tag">Staubli TX2-60</span>
+          <span class="tag">VAL3</span>
+          <span class="tag">Capteur effort</span>
+          <span class="tag">Convoyeur</span>
+        </div>
+        <a class="link-repo" href="https://github.com/hindjabrane2-coder/Contour-following-STAUBLI">Voir le code sur GitHub</a>
+      </div>
+    </div>
+
+    <div class="project">
+      <div class="project-body">
+        <h3>Cinematique et trajectoire du WidowX-200 en ROS2</h3>
+        <div class="meta">Projet personnel</div>
+        <p>
+          Workspace ROS2 complet pour le robot WidowX-200 (4 DDL, servomoteurs
+          Dynamixel). Inclut le modele geometrique direct et inverse (solution analytique
+          et numerique Newton-Raphson/Levenberg-Marquardt), la planification de trajectoire
+          MoveJ/MoveL/MoveC avec profils de vitesse trapezoidal et en S, et l'analyse
+          Monte Carlo de l'espace de travail avec cartographie de dexterite.
+        </p>
+        <div class="tags">
+          <span class="tag">ROS2</span>
+          <span class="tag">Python</span>
+          <span class="tag">Cinematique inverse</span>
+          <span class="tag">Trajectoire</span>
+          <span class="tag">Jacobienne</span>
+        </div>
+        <a class="link-repo" href="https://github.com/hindjabrane2-coder/widowx200-kinematics">Voir le code sur GitHub</a>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ==================== MECATRONIQUE ==================== -->
+
+  <section id="mecatronique">
+    <h2>Projets mecatroniques</h2>
+
+    <div class="project">
+      <div class="project-media">
+        <img src="media/banc-electrique-treefrog.jpg" alt="Banc electrique de l'encapsulateur TreeFrog Therapeutics">
+      </div>
+      <div class="project-body">
+        <h3>Encapsulateur de cellules souches, TreeFrog Therapeutics</h3>
+        <div class="meta">Stage PFE, Pessac (fev. 2026 - sept. 2026)</div>
+        <p>
+          Realisation electrique et electronique d'un encapsulateur de cellules souches
+          pour la medecine regenerative. Le systeme comprend une regulation PID,
+          une communication RS485, le pilotage de moteurs, et un systeme embarque Linux
+          avec IHM tactile et telecommande operateur. CAO SolidWorks pour les supports
+          mecaniques, prototypage par decoupe laser et impression 3D.
+        </p>
+        <div class="tags">
+          <span class="tag">Regulation PID</span>
+          <span class="tag">RS485</span>
+          <span class="tag">Linux embarque</span>
+          <span class="tag">SolidWorks</span>
+          <span class="tag">Impression 3D</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="repo-grid">
+      <div class="repo-card">
+        <h3><a href="https://github.com/hindjabrane2-coder/Robot-Assistance-Pmr">Robot d'assistance PMR</a></h3>
+        <p>
+          Robot d'assistance aux personnes a mobilite reduite. Commande embarquee
+          Arduino, pilotage de moteurs, capteurs de distance et interface utilisateur.
+        </p>
+        <span class="lang"><span class="lang-dot lang-cpp"></span>C++ / Arduino</span>
+      </div>
+
+      <div class="repo-card">
+        <h3><a href="https://github.com/hindjabrane2-coder/Monte-escalier-electromecanique">Monte-escalier electromecanique</a></h3>
+        <p>
+          Systeme electromecanique de monte-escalier. Dimensionnement des actionneurs,
+          commande Arduino et interface de supervision Python.
+        </p>
+        <span class="lang"><span class="lang-dot lang-python"></span>Python / Arduino</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== CONCEPTION MECANIQUE ==================== -->
+
+  <section id="conception">
+    <h2>Conception mecanique</h2>
+
+    <div class="project">
+      <div class="project-media">
+        <video controls muted preload="metadata">
+          <source src="media/prehenseur-creo.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="project-body">
+        <h3>Prehenseur de robot</h3>
+        <div class="meta">Projet de conception, Creo Parametric</div>
+        <p>
+          Conception d'un prehenseur de robot industriel sur Creo Parametric.
+          Le mecanisme utilise un verin pneumatique pour actionner un systeme
+          de biellettes qui commande l'ouverture et la fermeture des mors de serrage.
+        </p>
+        <div class="tags">
+          <span class="tag">Creo Parametric</span>
+          <span class="tag">Mecanisme</span>
+          <span class="tag">Pneumatique</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="project">
+      <div class="project-media">
+        <video controls muted preload="metadata">
+          <source src="media/reducteur-engrenages-creo.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="project-body">
+        <h3>Reducteur a engrenages</h3>
+        <div class="meta">Projet de conception, Creo Parametric</div>
+        <p>
+          Modelisation complete d'un reducteur a engrenages sur Creo Parametric
+          avec vue eclatee. Le reducteur comprend un train d'engrenages
+          cylindriques, les roulements de guidage des arbres et le carter d'assemblage.
+        </p>
+        <div class="tags">
+          <span class="tag">Creo Parametric</span>
+          <span class="tag">Engrenages</span>
+          <span class="tag">Roulements</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="repo-grid" style="grid-template-columns: 1fr;">
+      <div class="repo-card">
+        <h3><a href="https://github.com/hindjabrane2-coder/vehicule-tout-terrain-SEGULA">Vehicule tout-terrain, SEGULA Technologies</a></h3>
+        <p>
+          Cinematique de suspension double triangulation, analyse de contraintes
+          par elements finis et dimensionnement des ressorts de suspension
+          d'un vehicule tout-terrain.
+        </p>
+        <span class="lang"><span class="lang-dot lang-csharp"></span>C#</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== COMPETENCES ==================== -->
+
+  <section id="competences">
+    <h2>Competences</h2>
+
+    <div class="skills-grid">
+      <div class="skills-group">
+        <h3>Robotique</h3>
+        <p>Fanuc, Epson, Staubli, UR5e, WidowX-200, MiR 100.
+          Cinematique inverse, PID, MoveJ/MoveL, commande en force,
+          vision par ordinateur (OpenCV, YOLO). ROS2.</p>
+      </div>
+      <div class="skills-group">
+        <h3>Programmation</h3>
+        <p>Python, C/C++, Java, MATLAB, VAL3, Git, LaTeX.
+          Programmation d'automates, commande embarquee,
+          communication RS485.</p>
+      </div>
+      <div class="skills-group">
+        <h3>Conception</h3>
+        <p>SolidWorks, Creo Parametric, ANSYS.
+          Impression 3D, decoupe laser, prototypage rapide.</p>
+      </div>
+      <div class="skills-group">
+        <h3>Langues</h3>
+        <p>Francais (bilingue), anglais (C1), arabe (langue maternelle),
+          allemand (B1).</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    Hind Jabrane, 2026
+  </footer>
+
+</div>
+
+</body>
+</html>
